@@ -1,8 +1,4 @@
 // 884. Uncommon Words from Two Sentences
-// Solved
-// Easy
-// Topics
-// Companies
 
 // A sentence is a string of single-space separated words where each word consists only of lowercase letters.
 
