@@ -28,33 +28,54 @@ class Solution
 public:
     int reverse(int x)
     {
-        long result = 0;
-        int sign = 1;
+        // this solution uses long!
+        // long result = 0;
+        // int sign = 1;
 
-        if (x <= INT_MIN || x >= INT_MAX)
+        // if (x <= INT_MIN || x >= INT_MAX)
+        // {
+        //     return 0;
+        // }
+
+        // if (x < 0)
+        // {
+        //     sign = -1;
+        //     x = x * sign;
+        // }
+
+        // int rem = 0;
+        // while (x > 0)
+        // {
+        //     rem = x % 10;
+        //     result = result * 10 + rem;
+        //     x = x / 10;
+        // }
+
+        // if (result > INT_MAX || result < INT_MIN)
+        // {
+        //     return 0;
+        // }
+
+        // return result * sign;
+
+        int reversed = 0;
+        while (x != 0)
         {
-            return 0;
-        }
+            int digit = x % 10;
+            x /= 10;
 
-        if (x < 0)
-        {
-            sign = -1;
-            x = x * sign;
-        }
+            if (reversed > INT_MAX / 10 || (reversed == INT_MAX / 10 && digit > 7))
+            {
+                return 0;
+            }
 
-        int rem = 0;
-        while (x > 0)
-        {
-            rem = x % 10;
-            result = result * 10 + rem;
-            x = x / 10;
-        }
+            if (reversed < INT_MIN / 10 || (reversed == INT_MIN / 10 && digit < -8))
+            {
+                return 0;
+            }
 
-        if (result > INT_MAX || result < INT_MIN)
-        {
-            return 0;
+            reversed = reversed * 10 + digit;
         }
-
-        return result * sign;
+        return reversed;
     }
 };
